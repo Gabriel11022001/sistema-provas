@@ -15,6 +15,15 @@ class ProfessorRepository implements IRepository
     {   
         $this->pdo = $pdo;
     }
+    /**
+     * Método da camada de repositório que recebe como parâmetro
+     * um objeto da classe ProfessorDTO e salvar no banco de dados o 
+     * professor, caso ocorra algum problema no momento de persistir
+     * os dados do professor no banco de dados é lançado uma exceção 
+     * do tipo PDOException, caso contrário, é retornado uma mensagem
+     * informando que o professor foi cadastrado com sucesso no banco 
+     * de dados.
+     */
     public function salvar($entidade): string
     {
         $query = Queries::query("cadastrar_professor");

@@ -21,4 +21,12 @@ class Retorno implements JsonSerializable
     {
         return get_object_vars($this);
     }
+    public function getMensagem(): string
+    {
+        return $this->mensagem;
+    }
+    public function getConteudo()
+    {
+        return $this->conteudo;
+    }
 }

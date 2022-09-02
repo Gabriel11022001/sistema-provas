@@ -11,9 +11,9 @@ abstract class Controller
      */
     protected function view(string $view): void
     {
-        $view .= ".php";
+        $view = "app/views/" . $view . ".php";
         if (file_exists($view)) {
-            require_once "app/views/" . $view;
+            header("Location: " . $view);
         }
     }
 }

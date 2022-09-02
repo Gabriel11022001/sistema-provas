@@ -33,12 +33,18 @@ class UsuarioService
             $alunoDTO = $alunoRepository->buscarAlunoPeloIdDoUsuario($usuarioDTO->getId());
             if ($alunoDTO != null) {
                 $alunoDTO->setNome($usuarioDTO->getNome());
-                return new Retorno("Aluno encontrado com sucesso!", $alunoDTO);
+                return new Retorno("Aluno encontrado com sucesso!", [
+                    "id" => $alunoDTO->getId(),
+                    "nome" => $alunoDTO->getNome(),
+                    "ra" => $alunoDTO->getRa()
+                ]);
             }
             $professorRepository = new ProfessorRepository($conexao);
             $professorDTO = $professorRepository->buscarProfessorPeloIdDoUsuario($usuarioDTO->getId());
             $professorDTO->setNome($usuarioDTO->getNome());
-            return new Retorno("Professor encontrado com sucesso!", $professorDTO);
+            return new Retorno("Professor encontrado com sucesso!", [
+                
+            ]);
         } catch (Exception $e) {
             return new Retorno($e->getMessage(), null);
         }

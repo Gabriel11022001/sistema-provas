@@ -16,7 +16,7 @@ class Conexao
     {
         $bancoDados = "sistema_provas";
         $usuarioBancoDados = "root";
-        $senhaUsuarioBancoDados = "Gabriel@11022001";
+        $senhaUsuarioBancoDados = "";
         try {
             return new PDO("mysql:host=localhost;dbname=" . $bancoDados, $usuarioBancoDados, $senhaUsuarioBancoDados);
         } catch (PDOException $e) {
